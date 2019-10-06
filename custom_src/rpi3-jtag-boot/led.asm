@@ -11,8 +11,8 @@
 @; with the GPIO expander, we need to use the GPU's mailbox interface (in
 @; particular, we need to send a message to the property tag channel).
 @;
-@; Mailbox base address: 0xfe00b880
-@; Mailbox 1 write address: [0xfe00b880, #0x20]
+@; Mailbox base address: 0x3f00b880
+@; Mailbox 1 write address: [0x3f00b880, #0x20]
 @; Property tag channel: 8
 @; Property tag ID: 0x00038041 (SET_GPIO_STATE)
 @; Property tag message: 130 1 (ACT_LED pin number followed by state)
@@ -59,7 +59,7 @@ arg_ok:
 
 // then: wait until the mailbox has space
   mailbox .req x0// @; Alias mailbox to r0
-  ldr mailbox, =0xfe00b880// @; Load the mailbox's base address into r0
+  ldr mailbox, =0x3f00b880// @; Load the mailbox's base address into r0
 
   wait1$:
     status .req x1// @; Alias status to r1
