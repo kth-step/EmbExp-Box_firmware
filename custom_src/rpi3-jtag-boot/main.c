@@ -18,7 +18,7 @@
 
 #define BIT(x)	(1U << (x))
 
-#define PERI_BASE				(0xFE000000)
+#define PERI_BASE				(0x3F000000)
 
 #define MU_BASE					(PERI_BASE + 0x00215040)
 #define MU_LSR_TX_NOT_FULL		(BIT(5))
