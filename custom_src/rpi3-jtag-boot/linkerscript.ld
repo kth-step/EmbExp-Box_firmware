@@ -16,7 +16,7 @@ SECTIONS
 	. = ALIGN(8);
 	.text :
 	{
-	    startup.o (.text*)
+	    src/startup.o (.text*)
 		*(.text*)
 	}
 
