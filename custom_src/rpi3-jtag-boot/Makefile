@@ -1,11 +1,31 @@
-NAME	= rpi3-jtag.elf
-KERNEL	= kernel.img
 #CROSS	= aarch64-linux-gnu-
+ifndef CROSS
+  ifdef HOLBA_GCC_ARM8_CROSS
+    CROSS = ${HOLBA_GCC_ARM8_CROSS}
+  endif
+endif
 ifndef CROSS
   $(error need variable CROSS to be defined as gcc path prefix)
 endif
-CFLAGS	= -ggdb3 -std=gnu99 -Wall
+
+
+OUTDIR  = output
+NAME	= ${OUTDIR}/rpi3-jtag.elf
+KERNEL	= ${OUTDIR}/kernel.img
+
+rwildcard=$(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2) $(filter $(subst *,%,$2),$d))
+
+
+SOURCES_C     = $(call rwildcard, src/, *.c)
+SOURCES_S     = $(call rwildcard, src/, *.asm)
+INCLUDE_FILES = $(call rwildcard, inc/, *.h)
+
+OBJECTS       = $(SOURCES_C:.c=.o) $(SOURCES_S:.asm=.o)
+
+
+CFLAGS	= -ggdb3 -std=gnu99 -Wall -Iinc
 LDFLAGS = -Bstatic --gc-sections -nostartfiles -nostdlib
+
 
 all: $(KERNEL)
 
@@ -15,11 +35,18 @@ all: $(KERNEL)
 %.o: %.c
 	${CROSS}gcc ${CFLAGS} -c -o $@ $<
 
-$(NAME): main.o startup.o led.o
-	${CROSS}ld $(LDFLAGS) -o $@ -T linkerscript.ld $^
+$(NAME): ${OBJECTS} ${SOURCES_C} ${SOURCES_S} ${INCLUDE_FILES}
+	mkdir -p ${OUTDIR}
+	${CROSS}ld $(LDFLAGS) -o $@ -T linkerscript.ld ${OBJECTS}
 
 $(KERNEL): $(NAME)
+	mkdir -p ${OUTDIR}
 	${CROSS}objcopy --gap-fill=0xff -j .text -j .rodata -j .data -O binary $< $@
 
 clean:
-	rm -f $(KERNEL) $(NAME) main.o startup.o led.o
+	rm -rf ${OUTDIR}
+	rm -f $(KERNEL) $(NAME) ${OBJECTS}
+
+
+.PHONY: all clean
+
