@@ -16,7 +16,7 @@ int main_core0()
 {
 	uart_init();
 	uart_pin_init();
-	dbg_puts("Booting board: rpi4\n");
+	dbg_puts("Booting board: rpi3\n");
 
 	dbg_puts("Compilation at: ");
 	dbg_puts(__DATE__);
