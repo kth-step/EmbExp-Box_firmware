@@ -199,7 +199,6 @@ int main_core0()
 	_set_led(1);
 
         *flagp = *flagp + 1;
-	while(1);
 
 	return 0;
 }
@@ -213,7 +212,6 @@ int main_core1()
 	dbg_puts("Init complete #1.\n");
 
         *flagp = *flagp + 1;
-	while(1);
 
 	return 0;
 }
@@ -227,7 +225,6 @@ int main_core2()
 	dbg_puts("Init complete #2.\n");
 
         *flagp = *flagp + 1;
-	while(1);
 
 	return 0;
 }
@@ -241,7 +238,6 @@ int main_core3()
 	dbg_puts("Init complete #3.\n");
 
         *flagp = *flagp + 1;
-	while(1);
 
 	return 0;
 }

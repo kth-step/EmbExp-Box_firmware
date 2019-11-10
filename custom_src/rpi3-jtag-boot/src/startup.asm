@@ -30,6 +30,16 @@
 
 .globl _start
 _start:
+	b cores0123
+
+	// an infinite loop at location 0x4 (to catch all cores here after initialization)
+	// (if we use a more sophisticated loop with "wfe" or a more involved one,
+        //  we may need an exit strategy with a flag or something I guess)
+hang:
+	b hang
+
+
+cores0123:
 	// all four cores are executing from here
 
 	// first, we need to stop all cores except core0
@@ -88,7 +98,3 @@ cores3:
 
 
 
-	// an infinite loop
-hang:
-	//wfe
-	b hang
