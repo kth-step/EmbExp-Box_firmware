@@ -1,7 +1,3 @@
-
-#ifndef _RPI4HW_H
-#define _RPI4HW_H
-
 /*
  * Derived from code:
  * 
@@ -15,6 +11,9 @@
  * https://github.com/dwelch67/raspberrypi/tree/master/armjtag
  * Copyright (c) 2012 David Welch dwelch@dwelch.com
  */
+
+#ifndef _RPI4HW_H
+#define _RPI4HW_H
 
 #include <stdint.h>
 
@@ -74,23 +73,6 @@
 #define UART_UARTFBRD	(UART_BASE + 0x028)
 #define UART_UARTLCR_H	(UART_BASE + 0x02c)
 #define UART_UARTCR	(UART_BASE + 0x030)
-
-
-
-
-struct bcm283x_mu_regs {
-	uint32_t io;
-	uint32_t iir;
-	uint32_t ier;
-	uint32_t lcr;
-	uint32_t mcr;
-	uint32_t lsr;
-	uint32_t msr;
-	uint32_t scratch;
-	uint32_t cntl;
-	uint32_t stat;
-	uint32_t baud;
-};
 
 
 static inline uint32_t readl(uint64_t addr)
