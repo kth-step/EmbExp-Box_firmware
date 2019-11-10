@@ -1,7 +1,3 @@
-
-#ifndef _RPI3HW_H
-#define _RPI3HW_H
-
 /*
  * Derived from code:
  * 
@@ -16,9 +12,11 @@
  * Copyright (c) 2012 David Welch dwelch@dwelch.com
  */
 
+#ifndef _RPI3HW_H
+#define _RPI3HW_H
+
 #include <stdint.h>
 #include "led.h"
-
 
 #define BIT(x)	(1U << (x))
 
@@ -75,7 +73,6 @@ struct bcm283x_mu_regs {
 	uint32_t stat;
 	uint32_t baud;
 };
-
 
 static inline uint32_t readl(uint64_t addr)
 {
