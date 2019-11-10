@@ -1,0 +1,13 @@
+# copied from others
+start_file=start4.elf
+fixup_file=fixup4.dat
+
+# enable jtag pins (& tap apparently)
+enable_jtag_gpio=1
+# enable 64bit mode
+arm_64bit=1
+# start in EL3H
+kernel_old=1
+
+# not sure if this is needed or has an effect
+disable_commandline_tags=1
