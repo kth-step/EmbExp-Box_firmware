@@ -18,6 +18,12 @@ int main_core0()
 	uart_pin_init();
 	dbg_puts("Booting board: rpi4\n");
 
+	dbg_puts("Compilation at: ");
+	dbg_puts(__DATE__);
+	dbg_puts(" (");
+	dbg_puts(__TIME__);
+	dbg_puts(")\n");
+
 	dbg_puts("Init complete: #0\n");
 
         *flagp = *flagp + 1;
