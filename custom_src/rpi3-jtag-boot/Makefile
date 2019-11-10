@@ -10,7 +10,7 @@ endif
 
 
 OUTDIR  = output
-NAME	= ${OUTDIR}/rpi3-jtag.elf
+NAME	= ${OUTDIR}/program.elf
 KERNEL	= ${OUTDIR}/kernel.img
 
 rwildcard=$(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2) $(filter $(subst *,%,$2),$d))
