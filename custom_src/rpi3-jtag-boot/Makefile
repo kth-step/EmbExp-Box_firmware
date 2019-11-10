@@ -38,6 +38,7 @@ all: $(KERNEL)
 $(NAME): ${OBJECTS} ${SOURCES_C} ${SOURCES_S} ${INCLUDE_FILES}
 	mkdir -p ${OUTDIR}
 	${CROSS}ld $(LDFLAGS) -o $@ -T linkerscript.ld ${OBJECTS}
+	${CROSS}objdump -t -h -D $@ > "$@_da"
 
 $(KERNEL): $(NAME)
 	mkdir -p ${OUTDIR}
