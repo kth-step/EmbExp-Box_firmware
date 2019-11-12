@@ -1,3 +1,6 @@
+# sets 64 bit mode, deprecated
 arm_control=0x200
+# lets cores start in EL3H at 0x0
 kernel_old=1
+#
 disable_commandline_tags=1
