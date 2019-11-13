@@ -1,0 +1,4 @@
+# lets cores start in secure SVC mode at 0x0
+kernel_old=1
+#
+disable_commandline_tags=1
