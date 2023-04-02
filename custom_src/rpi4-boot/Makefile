@@ -11,7 +11,7 @@ endif
 
 OUTDIR  = output
 NAME	= ${OUTDIR}/program.elf
-KERNEL	= ${OUTDIR}/kernel.img
+KERNEL	= ${OUTDIR}/kernel8.img
 
 rwildcard=$(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2) $(filter $(subst *,%,$2),$d))
 
