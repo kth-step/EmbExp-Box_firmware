@@ -2,4 +2,8 @@ from https://github.com/raspberrypi/firmware
 
 2019-08-16 - b42496fd290dbe8cea47b230eb1782641329a24d
 
+2025-09-15 - 676efed1194de38975889a34276091da1f5aadd3
+----
+https://github.com/raspberrypi/firmware/releases/tag/1.20250915
+(git clone --depth 1 -b 1.20250915 https://github.com/raspberrypi/firmware.git)
 
