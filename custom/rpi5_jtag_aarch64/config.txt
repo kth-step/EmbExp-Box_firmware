@@ -1,0 +1,8 @@
+arm_64bit=1
+initial_turbo=0
+armstub=armstub8.bin
+
+enable_jtag_gpio=1
+pciex4_reset=0
+enable_rp1_uart=1
+
